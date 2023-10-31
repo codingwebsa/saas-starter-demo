@@ -4,9 +4,6 @@ import { withAuth, type NextRequestWithAuth } from "next-auth/middleware"
 
 export const config = {
   matcher: [
-    "/",
-    "/login",
-    "/register",
     //e.g. "/dashboard/:path*
   ],
 }
