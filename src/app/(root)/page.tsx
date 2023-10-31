@@ -1,20 +1,18 @@
-import Link from "next/link"
+"use client"
 
-import { getCurrentUser } from "~/lib/session"
+import { signOut, useSession } from "next-auth/react"
+
 import GoogleLoginButton from "~/components/auth/google-login-button"
-import { ThemeToggle } from "~/components/theme-toggle"
 
-export default async function HomePage() {
-  const { user } = await getCurrentUser()
-
+export default function HomePage() {
+  const { data: session, status } = useSession()
   return (
     <div>
       <h1>Home page </h1>
-      {user ? (
+      {status === "authenticated" && session.user ? (
         <div>
-          <p>{user.name}</p>
-          <Link href="/overview">Overview</Link>
-          <ThemeToggle />
+          <p>{session.user.name}</p>
+          <button onClick={() => signOut()}>sign out</button>
         </div>
       ) : (
         <GoogleLoginButton />

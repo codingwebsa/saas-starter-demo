@@ -24,7 +24,7 @@ export const env = createEnv({
     GITHUB_CLIENT_SECRET: z.string().min(1),
     // * RESEND_API_KEY: z.string().min(1),
     PLUNK_API_KEY: z.string().min(1),
-    COHERE_API_KEY: z.string().min(1),
+    VERCEL_URL: z.string().url().optional(),
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string().min(1),
@@ -46,7 +46,7 @@ export const env = createEnv({
     GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
     // * RESEND_API_KEY: process.env.RESEND_API_KEY,
     PLUNK_API_KEY: process.env.PLUNK_API_KEY,
-    COHERE_API_KEY: process.env.COHERE_API_KEY,
+    VERCEL_URL: process.env.VERCEL_URL,
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
   },
 })

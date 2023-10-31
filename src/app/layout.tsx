@@ -1,13 +1,11 @@
 import "../styles/globals.css"
 
 import type { Metadata } from "next"
-import { Nunito as FontSans } from "next/font/google"
+import { Inter as FontSans } from "next/font/google"
 
 import { siteConfig } from "~/config/site"
 import { cn } from "~/lib/utils"
-import { Toaster } from "~/components/ui/toaster"
-import SessionProvider from "~/components/session-provider"
-import { ThemeProvider } from "~/components/theme-provider"
+import Providers from "~/components/providers"
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -67,21 +65,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body
-        className={cn("min-h-screen font-sans antialiased", fontSans.variable)}
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+        )}
       >
-        <SessionProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
-        </SessionProvider>
-        <Toaster />
+        <Providers>{children}</Providers>
       </body>
     </html>
   )

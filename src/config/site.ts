@@ -1,5 +1,7 @@
-export const siteConfig = {
-  name: "Twittlify",
+import { SiteConfig } from "~/types"
+
+export const siteConfig: SiteConfig = {
+  name: "SaaS Starter",
   description:
     "An open source application built using the new router, server components and everything new in Next.js 13.",
   url: "https://saas-starter-demo.vercel.app/",

@@ -3,9 +3,6 @@
 # react email
 .react-email
 
-# passwords
-/passwords.txt
-
 # dependencies
 /node_modules
 /.pnp
